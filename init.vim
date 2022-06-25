@@ -17,17 +17,42 @@ Plug 'jiangmiao/auto-pairs' "this will auto close ( [ {
 Plug 'yuezk/vim-js'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'maxmellon/vim-jsx-pretty'
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-commentary'
+Plug 'lervag/vimtex'
+Plug 'inkarkat/vim-spellcheck'    " Spell Checking
+Plug 'vim-scripts/ingo-library'   " Required for Spell Checking
+"Plug 'Valloric/YouCompleteMe'
 call plug#end()
 
 colorscheme gruvbox
 map <silent> <C-n> :NERDTreeFocus<CR>
+
+"" Quicker Tab Shortcuts
+nmap <A-1> 1gt
+nmap <A-2> 2gt
+nmap <A-3> 3gt
+nmap <A-4> 4gt
+nmap <A-5> 5gt
+nmap <A-6> 6gt
+nmap <A-7> 7gt
+nmap <A-8> 8gt
+nmap <A-9> 9gt
 
 filetype plugin indent on     " required 
 
 set background=dark
 highlight ColorColumn ctermbg=0 guibg=white
 set ts=4 sw=4
+set autoindent
 set number 
+set nobackup
+set nowb
+set noswapfile
 set nowrap
 set smartcase
 set hlsearch
@@ -36,3 +61,39 @@ set noerrorbells
 set tabstop=4 softtabstop=4
 set expandtab
 set smartindent
+
+" Appearance
+set encoding=UTF-8
+set number
+set title
+set wildmenu
+syntax on 
+syntax spell toplevel
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Airline
+let g:airline_theme = "murmur"
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" NERDTree
+let NERDTreeMinimalUI  = 1
+let NERDTreeDirArrows  = 1
+let NERDTreeShowHidden = 1
+let g:NERDTreeWinSize  = 36
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" VimTex
+let g:tex_flavor = 'latex'
+let g:vimtex_compiler_latexmk = {
+    \ 'backend' : 'process',
+    \ 'background' : 1,
+    \ 'build_dir' : 'latexmk-files',
+    \ 'callback' : 1,
+    \ 'continuous' : 1,
+    \ 'executable' : 'latexmk',
+    \ 'options' : [
+    \   '-verbose',
+    \   '-file-line-error',
+    \   '-synctex=1',
+    \   '-interaction=nonstopmode',
+    \ ],
+    \}
