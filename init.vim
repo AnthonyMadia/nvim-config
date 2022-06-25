@@ -27,6 +27,7 @@ Plug 'lervag/vimtex'
 Plug 'inkarkat/vim-spellcheck'    " Spell Checking
 Plug 'vim-scripts/ingo-library'   " Required for Spell Checking
 "Plug 'Valloric/YouCompleteMe'
+Plug 'ThePrimeagen/vim-be-good'
 call plug#end()
 
 colorscheme gruvbox
@@ -69,6 +70,17 @@ set title
 set wildmenu
 syntax on 
 syntax spell toplevel
+"let &colorcolumn="80,".join(range(100,999),",") " Colour 80 char column and column's >100
+set cursorline
+"set list                 " Show whitespace characters, and configure
+set listchars=tab:\|\ ,trail:·,
+set relativenumber
+
+"" Misc
+set novisualbell
+set pastetoggle=<F2>     " Paste mode when pressing F2
+set scrolloff=100        " Dodgy Typewriter mode
+set modeline             " Use modelines
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" Airline
 let g:airline_theme = "murmur"
